@@ -1,0 +1,17 @@
+1. Create a form with the following controls and a submit button
+	- Text Box
+	- TextArea
+	- Select (Dropdown)
+	- Checkbox
+	- Radio Buttons (Group of 2)
+2. Set default values for all of the controls
+3. On form submit, extract all the values into a JS object and print in console.
+4. Do this excercise two times. Once in controlled approach and another in uncontrolled approach.
+5. Bonus: As text is being entered into the textbox, show a validation message below it if the text is less than 5 charachers long. Prevent submission of form if this validation fails.
+
+
+App
+	-ControlledForm
+	-UncontrolledForm
+
+
