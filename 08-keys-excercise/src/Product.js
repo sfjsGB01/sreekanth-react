@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Product(props) {
+function Product({ name, price }) {
   return (
     <tr>
-      <td>{props.name}</td>
-      <td>${props.price}</td>
+      <td>{name}</td>
+      <td>${price}</td>
     </tr>
   )
 }

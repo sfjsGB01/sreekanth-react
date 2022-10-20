@@ -1,7 +1,6 @@
 import React from 'react'
 
-import Category from './Category'
-import Product from './Product'
+import CategoryProductGroup from './CategoryProductGroup'
 
 function Display() {
   return (
@@ -12,17 +11,9 @@ function Display() {
           <th>Price</th>
         </tr>
 
-        <Category title='Sporting Goods' />
-
-        <Product name='Football' price='45' />
-        <Product name='Baseball' price='60' />
-        <Product name='Basketball' price='40' />
-
-        <Category title='Electronics' />
-
-        <Product name='iPhone' price='4500' />
-        <Product name='iPad' price='1005' />
-        <Product name='Laptop' price='2546' />
+        {productData.map((category) => (
+          <CategoryProductGroup key={category.id} data={category} />
+        ))}
       </tbody>
     </table>
   )
@@ -32,6 +23,7 @@ export default Display
 
 const productData = [
   {
+    id: 100,
     categoryName: 'Sporting Goods',
     products: [
       {
@@ -49,6 +41,7 @@ const productData = [
     ],
   },
   {
+    id: 200,
     categoryName: 'Electronics',
     products: [
       {
