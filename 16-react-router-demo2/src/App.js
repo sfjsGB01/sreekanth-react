@@ -8,6 +8,9 @@ import ContactUs from './ContactUs'
 import Timer from './Timer'
 import Products from './Products'
 import Employees from './Employees'
+import LegalPagesLayout from './legal-pages/LegalPagesLayout'
+import Privacy from './legal-pages/Privacy'
+import Terms from './legal-pages/Terms'
 
 function App() {
   const navigate = useNavigate()
@@ -37,6 +40,11 @@ function App() {
         <li>
           <Link to='/contact-us'>Contact Us</Link>
         </li>
+
+        <li>
+          <Link to='/legal'>Legal</Link>
+        </li>
+
         <li>
           <Link to='/timer'>Timer</Link>
         </li>
@@ -64,6 +72,11 @@ function App() {
         <Route path='/timer' element={<Timer />} />
         <Route path='/products/:id' element={<Products />} />
         <Route path='/employees' element={<Employees />} />
+
+        <Route path='/legal' element={<LegalPagesLayout />}>
+          <Route path='privacy' element={<Privacy />} />
+          <Route path='terms' element={<Terms />} />
+        </Route>
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
