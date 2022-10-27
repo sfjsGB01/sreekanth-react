@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+
 import axios from './util/axiosConfig'
+import getEmployeesReducer from './util/getEmployeesReducer'
 
 function App() {
-  const [employees, setEmployees] = React.useState([])
-  const [loading, setLoading] = React.useState(false)
-  const [error, setError] = React.useState('')
+  // const [employees, setEmployees] = React.useState([])
+  // const [loading, setLoading] = React.useState(false)
+  // const [error, setError] = React.useState('')
+
+  const [state, dispatch] = useReducer(getEmployeesReducer, {
+    employees: [],
+    loading: false,
+    error: '',
+  })
+
+  const { employees, loading, error } = state
 
   const fNameRef = React.useRef()
   const lNameRef = React.useRef()
@@ -15,17 +25,19 @@ function App() {
   }, [])
 
   const getEmployees = () => {
-    setLoading(true)
+    // setLoading(true)
+
+    dispatch({ type: 'CALLING_API' })
     axios
       .get('/employees')
       .then((result) => {
-        setEmployees(result?.data)
+        //setEmployees(result?.data)
+        dispatch({ type: 'API_CALL_SUCCESS', employees: result?.data })
       })
       .catch((error) => {
-        setError(error?.message)
-      })
-      .finally(() => {
-        setLoading(false)
+        // setError(error?.message)
+
+        dispatch({ type: 'API_CALL_FAILURE', error: error?.message })
       })
   }
 
