@@ -58,7 +58,7 @@ const Login = () => {
       </div>
 
       <div>
-        <input type="text" placeholder="Password" onChange={onPasswordChange} />
+        <input type="password" placeholder="Password" onChange={onPasswordChange} />
       </div>
 
       {error !== "" && <div style={{ color: "red" }}>
